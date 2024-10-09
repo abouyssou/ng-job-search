@@ -1,0 +1,12 @@
+:host {
+  button {
+    display: flex;
+    gap: 8px;
+    color: black;
+    background-color: none;
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}

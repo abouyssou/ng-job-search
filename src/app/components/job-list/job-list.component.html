@@ -1,0 +1,8 @@
+@for (job of jobList; track job.id) {
+<app-job-card
+  [job]="job"
+  (onFavClick)="onFavoriteClick($event)"
+  [isFavorite]="favoriteJobsIds.includes(job.id)"
+  [displayFavoriteIcon]="!isFavoritePage"
+></app-job-card>
+}

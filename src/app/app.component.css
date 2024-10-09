@@ -1,0 +1,35 @@
+:host {
+  #app-h1 {
+    text-align: center;
+  }
+  .main-container {
+    padding: 24px;
+  }
+  .margin-auto {
+    margin: auto;
+  }
+
+  .max-w-960 {
+    max-width: 960px;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    border: none;
+    background-color: var(--back-color);
+    a {
+      width: 100%;
+      background-color: var(--back-color);
+      &.activated-tab {
+        background-color: #3a4252;
+        color: white;
+      }
+
+      &:hover {
+        filter: brightness(85%);
+      }
+    }
+  }
+}

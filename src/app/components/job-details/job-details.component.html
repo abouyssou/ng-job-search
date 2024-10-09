@@ -1,0 +1,24 @@
+@if(detailedJob) {
+
+<div class="flex-row">
+  <img class="companyLogo" src="{{ detailedJob.companyLogo }}" />
+  <div class="flex-column">
+    <h2>
+      {{ detailedJob.companyName }} -
+      {{ detailedJob.title }}
+    </h2>
+    <div class="flex-row gap-12 m-left-8">
+      <app-job-chip [chipText]="detailedJob.types"></app-job-chip>
+      <app-job-chip [chipText]="detailedJob.industries"></app-job-chip>
+    </div>
+  </div>
+</div>
+<p><strong>Publish date: </strong>{{ detailedJob.publishDate }}</p>
+<p><strong>Location: </strong>{{ detailedJob.location }}</p>
+<p><strong>Reference: </strong>{{ detailedJob.reference }}</p>
+
+<p>
+  <strong>Description: </strong>
+  <span [innerHTML]="detailedJob.description"></span>
+</p>
+}

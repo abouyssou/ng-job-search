@@ -1,0 +1,5 @@
+@if(favoriteJobs() && favoriteJobs().length > 0) {
+<app-job-list [jobList]="favoriteJobs()" [isFavoritePage]="true"></app-job-list>
+} @else {
+<p class="centered m-top-48">No favorite selected</p>
+}

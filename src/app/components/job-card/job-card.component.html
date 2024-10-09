@@ -1,0 +1,18 @@
+<img class="companyLogo" src="{{ job.companyLogo }}" />
+<div class="job-info">
+  <a routerLink="/jobs/{{ job.id }}"
+    ><h2>{{ job.title }}</h2></a
+  >
+  <p>
+    <span class="m-right-8">Company : {{ job.companyName }}</span>
+    <span class="m-left-8">Reference : {{ job.reference }}</span>
+  </p>
+</div>
+@if(displayFavoriteIcon) {
+<span
+  class="icon-star"
+  id="star-{{ job.id }}"
+  [class.active]="isFavorite"
+  (click)="onFavoriteClick()"
+></span>
+}

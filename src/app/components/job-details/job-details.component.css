@@ -1,0 +1,14 @@
+:host {
+  p {
+    color: #3a4252;
+  }
+
+  .companyLogo {
+    width: 96px;
+    height: 96px;
+  }
+
+  .m-left-8 {
+    margin-left: 8px;
+  }
+}
