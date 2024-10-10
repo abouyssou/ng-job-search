@@ -22,12 +22,12 @@ export class JobHomeComponent implements OnInit {
 
   constructor(private jobDataService: JobDataService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.allJobs = this.jobDataService.getJobs();
     this.favoriteJobsIds = this.jobDataService.getFavoriteJobsIds();
   }
 
-  onFavouriteClick(event: FavoriteJob) {
+  onFavouriteClick(event: FavoriteJob): void {
     if (event?.isFavorite) {
       if (event?.jobId || event?.jobId >= 0) {
         this.jobDataService.addFavoriteJobId(event.jobId);

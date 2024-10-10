@@ -26,7 +26,7 @@ export class JobDetailsPageComponent implements OnInit {
   detailedJob$!: Observable<DetailedJob>;
   constructor(private jobHttpService: JobHttpService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.detailedJob$ = this.jobHttpService.getDetailedJobById(this.jobId);
   }
 }

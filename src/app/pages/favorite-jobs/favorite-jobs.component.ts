@@ -21,7 +21,7 @@ export class FavoriteJobsComponent implements OnInit {
 
   constructor(private jobDataService: JobDataService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.favoriteJobs = this.jobDataService.getFavoriteJobs();
   }
 }

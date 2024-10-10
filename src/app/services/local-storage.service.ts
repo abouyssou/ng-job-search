@@ -6,15 +6,8 @@ export const FAVORITE_JOBS_IDS_KEY = 'FAVORITE_JOBS_IDS';
   providedIn: 'root',
 })
 export class LocalStorageService {
-  public addFavoriteJobIdInLocalStorage(jobId: number) {
-    let favoriteJobsIds: string | null = localStorage.getItem(
-      FAVORITE_JOBS_IDS_KEY
-    );
-    let newFavoriteJobsIds: string[] = [];
-    if (favoriteJobsIds) {
-      newFavoriteJobsIds = JSON.parse(favoriteJobsIds);
-    }
-
+  public addFavoriteJobIdInLocalStorage(jobId: number): void {
+    let newFavoriteJobsIds = this.getParsedJobIds();
     newFavoriteJobsIds.push(jobId.toString());
     localStorage.setItem(
       FAVORITE_JOBS_IDS_KEY,
@@ -22,20 +15,15 @@ export class LocalStorageService {
     );
   }
 
-  public removeFavoriteJobIdFromLocalStorage(jobId: number) {
-    let favoriteJobsIds: string | null = localStorage.getItem(
-      FAVORITE_JOBS_IDS_KEY
-    );
-    let favoriteJobsIdsArray: string[] = [];
-    if (favoriteJobsIds) {
-      favoriteJobsIdsArray = JSON.parse(favoriteJobsIds);
-    }
-    favoriteJobsIdsArray = favoriteJobsIdsArray.filter((favJobId) => {
+  public removeFavoriteJobIdFromLocalStorage(jobId: number): void {
+    let newFavoriteJobsIds = this.getParsedJobIds();
+
+    newFavoriteJobsIds = newFavoriteJobsIds.filter((favJobId) => {
       return favJobId !== jobId.toString();
     });
     localStorage.setItem(
       FAVORITE_JOBS_IDS_KEY,
-      JSON.stringify(favoriteJobsIdsArray)
+      JSON.stringify(newFavoriteJobsIds)
     );
   }
 
@@ -55,5 +43,17 @@ export class LocalStorageService {
     }
 
     return favoriteJobIdsArray;
+  }
+
+  private getParsedJobIds(): string[] {
+    let favoriteJobsIds: string | null = localStorage.getItem(
+      FAVORITE_JOBS_IDS_KEY
+    );
+    let newFavoriteJobsIds: string[] = [];
+    if (favoriteJobsIds) {
+      newFavoriteJobsIds = JSON.parse(favoriteJobsIds);
+    }
+
+    return newFavoriteJobsIds;
   }
 }

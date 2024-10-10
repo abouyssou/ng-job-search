@@ -22,7 +22,7 @@ export class JobListComponent {
   @Input() isFavoritePage: boolean = false;
   @Output() onFavClick = new EventEmitter<FavoriteJob>();
 
-  onFavoriteClick(event: FavoriteJob) {
+  onFavoriteClick(event: FavoriteJob): void {
     this.onFavClick.emit(event);
   }
 }
