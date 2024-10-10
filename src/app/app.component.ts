@@ -14,8 +14,6 @@ import { JobHttpService } from './services/job-http.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit {
-  title = 'ng-job-search';
-
   constructor(
     private jobDataService: JobDataService,
     private jobHttpService: JobHttpService
